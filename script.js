@@ -1,7 +1,9 @@
 const cont = document.querySelector('.bars_container');
 const newArray = document.querySelector('#random_array')
 const sort = document.querySelector('#sort')
-
+const sizeSlider = document.getElementById('#size_slider')
+const speedSlider = document.getElementById('#speed_slider')
+const algo = document.getElementById('#algo') 
 
 newArray.addEventListener('click', function(){
     createArray();
@@ -52,19 +54,16 @@ async function bubbleSort(arr)
     for(let i = 0; i<arr.length; i++)
     {
         for(let j = 0; j<arr.length - i - 1; j++)
-        {
-            bars[j].style.backgroundColor = "green"
-            bars[j+1].style.backgroundColor = "green"  
-            await sleep(1) 
+        { 
             if(arr[j] > arr[j+1])
             {
-                for(let k=0; k<bars.length; k++)
-                {
-                    if(k !==j && k !== j+1)
-                    {
-                        bars[k].style.backgroundColor = "white";
-                    }
-                }
+                // for(let k=0; k<bars.length; k++)
+                // {
+                //     if(k !==j && k !== j+1)
+                //     {
+                //         bars[k].style.backgroundColor = "#55bdca";
+                //     }
+                // }
                 let temp;
                 temp = arr[j];
                 arr[j] = arr[j+1];
@@ -75,11 +74,12 @@ async function bubbleSort(arr)
                 bars[j+1].style.backgroundColor = "red"
                 await sleep(1)
             }
-            bars[j].style.backgroundColor = "white"
-            bars[j+1].style.backgroundColor = "white" 
+            bars[j].style.backgroundColor = "rgb(131, 237, 237)"
+            bars[j+1].style.backgroundColor = "rgb(131, 237, 237)" 
             await sleep(1)
         }
-       
+        bars[arr.length-i-1].style.backgroundColor = 'lightGreen'
+        
     }
     return array;
 }

@@ -6,7 +6,7 @@
 
 body{
     font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif;
-    background-color: #1a1a1b;
+    background-color: #2d2d34;
 }
 
 .main_container{
@@ -20,15 +20,17 @@ body{
 .header{
     height: 60px;
     width:100%;
-    background-color: #45494b;
-    text-align: center;
+    background-color: #383844;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     margin-bottom: 10px;
     border-radius: 10px;
 }
 
 .heading{
-    margin-top: 10px;
     color: white;
+    font-size: 20px;
 }
 
 .section{
@@ -38,27 +40,120 @@ body{
 }
 
 .controls{
-    height: 350px;
+    height: 470px;
     width: 350px;
-    background-color: #45494b;
+    background-color: #383844;
     border-radius: 10px;
     padding: 16px;
+    display: flex;
+    flex-direction: column;
 }
 
 .bars_container{
     border-radius: 10px;
-    height: 350px;
+    height: 470px;
     width: 900px;
-    background-color: #45494b;
+    background-color: #383844;
     display: flex;
     justify-content: center;
     align-items: flex-end;
+    padding-bottom: 40px;
     
 }
 
 .bar{
     width: 8px;
-    background-color: white;
+    background-color: rgb(131, 237, 237);
+    border-radius: 2px;
     margin: 0px 2px;
     transition:height 0.5s ease-in-out
+}
+
+.slider{
+    height: 200px;
+    padding:8px;
+}
+
+.size{
+    margin-bottom: 16px;
+}
+
+.size,.speed{
+    height: 40px;
+    width:  302px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 8px;
+    border-radius: 5px;;
+    background-color: #2d2d34;
+}
+
+.range{
+    appearance: none;
+    width:200px;
+    height: 5px;
+    background-color: #40404b;
+}
+
+.range::-webkit-slider-thumb{
+    appearance: none;
+    width: 15px;
+    height: 15px;
+    border-radius: 8px ;
+    background-color: #383844;
+    border: 2px solid aqua;
+}
+
+#size,#speed{
+    color: white;
+    margin-bottom: 16px;
+}
+
+
+.algorithm_selection {
+    height: 130px;
+    padding: 8px;
+}
+
+.algorithm{
+    color: white;
+    margin-bottom: 26px;
+}
+
+#algo{
+    background-color: #2d2d34;
+    padding: 8px;
+    width: 302px;
+    height: 40px;
+    border-radius: 5px;
+    color:white;
+    font-size: 16px;
+    text-decoration: none;
+    list-style: none;
+    text-align: center;
+}
+
+.buttons{
+    margin-top:30px;
+    height:60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+button{
+    padding: 8px;
+    height: 35px;
+    width: 110px;
+    color: black;
+    font-weight: bold;
+    background-color: aqua;
+    border:none;
+    border-radius: 8px;
+}
+
+button:hover{
+    transform: scale(1.1)
 }
