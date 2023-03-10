@@ -99,6 +99,37 @@ async function bubbleSort(arr)
     }
 }
 
+//implement insertion sort algo
+async function insertionSort(arr)
+{
+    const bars = document.getElementsByClassName('bar')
+
+    for(let i = 1; i<numOfBars; i++)
+    {
+        let temp = arr[i];
+        let j = i - 1;
+        for(; j>=0; j--)
+        { 
+            if(arr[j] > temp)
+            {
+                arr[j+1] = arr[j]
+                bars[j+1].style.height = arr[j+1] * 15 + "px"  
+                //yellow and red denote the positions where the shift is happening
+                bars[j].style.backgroundColor = "yellow"
+                bars[j+1].style.backgroundColor = "red"
+                await sleep(delay)
+            }
+            else{
+                break;
+            }
+            bars[j].style.backgroundColor = "rgb(131, 237, 237)"
+            bars[j+1].style.backgroundColor = "rgb(131, 237, 237)" 
+            await sleep(delay)
+        }
+        arr[j+1] = temp;
+        bars[j+1].style.height = arr[j+1] * 15 + "px" 
+        }
+}
 
 sort.addEventListener('click' , function(){
     switch(algoUsed) {
@@ -113,7 +144,7 @@ sort.addEventListener('click' , function(){
             break;
         case("quick"):
             quickSort(array);
-            break;
+           break;
         default:
             bubbleSort(array);
             break;
