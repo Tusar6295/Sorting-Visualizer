@@ -1,9 +1,15 @@
 const cont = document.querySelector('.bars_container');
 const newArray = document.querySelector('#random_array')
 const sort = document.querySelector('#sort')
-const sizeSlider = document.getElementById('#size_slider')
-const speedSlider = document.getElementById('#speed_slider')
+const sizeSlider = document.getElementById('size_slider')
+const speedSlider = document.getElementById('speed_slider')
 const algo = document.getElementById('#algo') 
+
+let min = 1; 
+let max = 20;
+let array = [];
+let numOfBars = parseInt(sizeSlider.value);
+let delay = parseInt(speedSlider.value);
 
 newArray.addEventListener('click', function(){
     createArray();
@@ -11,13 +17,20 @@ newArray.addEventListener('click', function(){
     bars(array)
 })
 
-let min = 1; 
-let max = 20;
-let array = [];
+sizeSlider.addEventListener("input", function () {
+    numOfBars = sizeSlider.value;
+    cont.innerHTML = "";
+    createArray();
+    bars(array);
+  });
+
+  speedSlider.addEventListener("input", function () {
+   delay = 310 - parseInt(speedSlider.value);
+  });
 
 function createArray()
 {
-    for(let i=0; i<50; i++)
+    for(let i=0; i<numOfBars; i++)
     {
         let randomNum = Math.floor(Math.random() * (max - min + 1)) + min;
         array[i] = randomNum;
@@ -30,7 +43,7 @@ document.addEventListener("DOMContentLoaded", function() {
 })
 
 function bars(array){
-    for(let i=0; i<array.length; i++)
+    for(let i=0; i<numOfBars; i++)
     {
         const bar = document.createElement('div')
         bar.classList.add('bar');
@@ -51,9 +64,9 @@ function sleep(ms)
 async function bubbleSort(arr)
 {
     const bars = document.getElementsByClassName('bar')
-    for(let i = 0; i<arr.length; i++)
+    for(let i = 0; i<numOfBars; i++)
     {
-        for(let j = 0; j<arr.length - i - 1; j++)
+        for(let j = 0; j<numOfBars - i - 1; j++)
         { 
             if(arr[j] > arr[j+1])
             {
@@ -72,11 +85,11 @@ async function bubbleSort(arr)
                 bars[j].style.backgroundColor = "red"
                 bars[j+1].style.height = arr[j+1] * 15 + "px"  
                 bars[j+1].style.backgroundColor = "red"
-                await sleep(1)
+                await sleep(delay)
             }
             bars[j].style.backgroundColor = "rgb(131, 237, 237)"
             bars[j+1].style.backgroundColor = "rgb(131, 237, 237)" 
-            await sleep(1)
+            await sleep(delay)
         }
         bars[arr.length-i-1].style.backgroundColor = 'lightGreen'
         
