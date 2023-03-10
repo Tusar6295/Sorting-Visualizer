@@ -131,6 +131,39 @@ async function insertionSort(arr)
         }
 }
 
+//implemented selection sort algo
+async function selectionSort(arr)
+{
+    const bars = document.getElementsByClassName('bar')
+    let i,j,min;
+    for(i = 0; i<numOfBars; i++)
+    {
+        min = i; 
+        for(j = i+1; j<numOfBars; j++)
+        { 
+            if(arr[j] < arr[min])
+            {
+                min = j;
+            }
+        }
+        if(min!=i)
+            {
+                //swap (red colour denotes the position of swap)
+                [arr[i],arr[min]] = [arr[min],arr[i]]
+                bars[i].style.height = arr[i] * 15 + "px"  
+                bars[i].style.backgroundColor = "red"
+                bars[min].style.height = arr[min] * 15 + "px"  
+                bars[min].style.backgroundColor = "red"
+                await sleep(delay)
+            }
+            bars[i].style.backgroundColor = "rgb(131, 237, 237)"
+            bars[min].style.backgroundColor = "rgb(131, 237, 237)" 
+            await sleep(delay)    
+            bars[i].style.backgroundColor = "lightGreen"
+    }
+    
+}
+
 sort.addEventListener('click' , function(){
     switch(algoUsed) {
         case("bubble") :
@@ -138,6 +171,9 @@ sort.addEventListener('click' , function(){
             break;
         case("insertion"):
             insertionSort(array);
+            break;
+        case("selection"):
+            selectionSort(array);
             break;
         case("merge"):
             mergeSort(array);
