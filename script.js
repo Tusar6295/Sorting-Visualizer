@@ -3,20 +3,23 @@ const newArray = document.querySelector('#random_array')
 const sort = document.querySelector('#sort')
 const sizeSlider = document.getElementById('size_slider')
 const speedSlider = document.getElementById('speed_slider')
-const algo = document.getElementById('#algo') 
+const algo = document.getElementById('algo') 
 
 let min = 1; 
 let max = 20;
 let array = [];
 let numOfBars = parseInt(sizeSlider.value);
 let delay = parseInt(speedSlider.value);
+let algoUsed = "";
 
+//creates new random array
 newArray.addEventListener('click', function(){
     createArray();
     cont.textContent = ''
     bars(array)
 })
 
+//slider to change array size
 sizeSlider.addEventListener("input", function () {
     numOfBars = sizeSlider.value;
     cont.innerHTML = "";
@@ -24,24 +27,33 @@ sizeSlider.addEventListener("input", function () {
     bars(array);
   });
 
-  speedSlider.addEventListener("input", function () {
+//slider to change speed 
+speedSlider.addEventListener("input", function () {
    delay = 310 - parseInt(speedSlider.value);
   });
+
+//choose the required algorithm
+algo.addEventListener('change', () =>{
+    algoUsed = algo.value;
+})
 
 function createArray()
 {
     for(let i=0; i<numOfBars; i++)
     {
+        //generate a random number and store it in the array
         let randomNum = Math.floor(Math.random() * (max - min + 1)) + min;
         array[i] = randomNum;
     }
 }
 
+//array is created and bars are rendered when dom is loaded
 document.addEventListener("DOMContentLoaded", function() {
     createArray()
     bars(array)
 })
 
+//display bars based on array size
 function bars(array){
     for(let i=0; i<numOfBars; i++)
     {
@@ -52,15 +64,13 @@ function bars(array){
     }
 }
 
-sort.addEventListener('click' , function(){
-    console.log(bubbleSort(array));
-})
-
+//function to set timeout
 function sleep(ms)
 {
     return new Promise((resolve) => setTimeout(resolve,ms));
 }
 
+//implement bubblesort algo
 async function bubbleSort(arr)
 {
     const bars = document.getElementsByClassName('bar')
@@ -70,13 +80,6 @@ async function bubbleSort(arr)
         { 
             if(arr[j] > arr[j+1])
             {
-                // for(let k=0; k<bars.length; k++)
-                // {
-                //     if(k !==j && k !== j+1)
-                //     {
-                //         bars[k].style.backgroundColor = "#55bdca";
-                //     }
-                // }
                 let temp;
                 temp = arr[j];
                 arr[j] = arr[j+1];
@@ -94,5 +97,28 @@ async function bubbleSort(arr)
         bars[arr.length-i-1].style.backgroundColor = 'lightGreen'
         
     }
-    return array;
 }
+
+
+sort.addEventListener('click' , function(){
+    switch(algoUsed) {
+        case("bubble") :
+            bubbleSort(array);
+            break;
+        case("insertion"):
+            insertionSort(array);
+            break;
+        case("merge"):
+            mergeSort(array);
+            break;
+        case("quick"):
+            quickSort(array);
+            break;
+        default:
+            bubbleSort(array);
+            break;
+    
+    
+    
+    }
+})
