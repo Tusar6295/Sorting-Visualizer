@@ -94,7 +94,7 @@ async function bubbleSort(arr)
             bars[j+1].style.backgroundColor = "rgb(131, 237, 237)" 
             await sleep(delay)
         }
-        bars[arr.length-i-1].style.backgroundColor = 'lightGreen'
+        bars[numOfBars-i-1].style.backgroundColor = 'lightGreen'
         
     }
 }
@@ -184,8 +184,5 @@ sort.addEventListener('click' , function(){
         default:
             bubbleSort(array);
             break;
-    
-    
-    
     }
 })
