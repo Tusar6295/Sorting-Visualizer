@@ -86,13 +86,13 @@ async function bubbleSort(arr)
                 arr[j] = arr[j+1];
                 arr[j+1] = temp;
                 bars[j].style.height = arr[j] * 15 + "px"
-                bars[j].style.backgroundColor = "red"
+                bars[j].style.backgroundColor = "rgb(207, 70, 70)"
                 bars[j+1].style.height = arr[j+1] * 15 + "px"  
-                bars[j+1].style.backgroundColor = "red"
+                bars[j+1].style.backgroundColor = "rgb(207, 70, 70)"
                 await sleep(delay)
             }
-            bars[j].style.backgroundColor = "rgb(131, 237, 237)"
-            bars[j+1].style.backgroundColor = "rgb(131, 237, 237)" 
+            bars[j].style.backgroundColor = "rgb(90, 167, 244)"
+            bars[j+1].style.backgroundColor = "rgb(90, 167, 244)" 
             await sleep(delay)
         }
         bars[numOfBars-i-1].style.backgroundColor = 'lightGreen'
@@ -116,14 +116,14 @@ async function insertionSort(arr)
                 bars[j+1].style.height = arr[j+1] * 15 + "px"  
                 //yellow and red denote the positions where the shift is happening
                 bars[j].style.backgroundColor = "yellow"
-                bars[j+1].style.backgroundColor = "red"
+                bars[j+1].style.backgroundColor = "rgb(207, 70, 70)"
                 await sleep(delay)
             }
             else{
                 break;
             }
-            bars[j].style.backgroundColor = "rgb(131, 237, 237)"
-            bars[j+1].style.backgroundColor = "rgb(131, 237, 237)" 
+            bars[j].style.backgroundColor = "rgb(90, 167, 244)"
+            bars[j+1].style.backgroundColor = "rgb(90, 167, 244)" 
             await sleep(delay)
         }
         arr[j+1] = temp;
@@ -151,13 +151,13 @@ async function selectionSort(arr)
                 //swap (red colour denotes the position of swap)
                 [arr[i],arr[min]] = [arr[min],arr[i]]
                 bars[i].style.height = arr[i] * 15 + "px"  
-                bars[i].style.backgroundColor = "red"
+                bars[i].style.backgroundColor = "rgb(207, 70, 70)"
                 bars[min].style.height = arr[min] * 15 + "px"  
-                bars[min].style.backgroundColor = "red"
+                bars[min].style.backgroundColor = "rgb(207, 70, 70)"
                 await sleep(delay)
             }
-            bars[i].style.backgroundColor = "rgb(131, 237, 237)"
-            bars[min].style.backgroundColor = "rgb(131, 237, 237)" 
+            bars[i].style.backgroundColor = "rgb(90, 167, 244)"
+            bars[min].style.backgroundColor = "rgb(90, 167, 244)" 
             await sleep(delay)    
             bars[i].style.backgroundColor = "lightGreen"
     }
@@ -194,7 +194,7 @@ async function merge(arr,s,e)
 
     while(i < len1 && j < len2)
     {
-        bars[k].style.backgroundColor = "yellow"
+        bars[k].style.backgroundColor = "rgb(207, 70, 70)"
         if(arr1[i] < arr2[j])
         {
             arr[k] = arr1[i];
@@ -214,7 +214,7 @@ async function merge(arr,s,e)
 
     while(i<len1)
     {
-        bars[k].style.backgroundColor = "yellow"
+        bars[k].style.backgroundColor = "rgb(207, 70, 70)"
         arr[k] = arr1[i];
         bars[k].style.height = arr[k] * 15 + 'px';
         i++;
@@ -224,7 +224,7 @@ async function merge(arr,s,e)
 
     while(j<len2)
     {
-        bars[k].style.backgroundColor = "yellow"
+        bars[k].style.backgroundColor = "rgb(207, 70, 70)"
         arr[k] = arr2[j];
         bars[k].style.height = arr[k] * 15 + 'px';
         j++;
@@ -233,7 +233,7 @@ async function merge(arr,s,e)
     }
 
     for (let k = 0; k < bars.length; k++) {
-        bars[k].style.backgroundColor = "aqua";
+        bars[k].style.backgroundColor = "rgb(90, 167, 244)";
     }
 }
 

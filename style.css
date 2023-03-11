@@ -6,7 +6,7 @@
 
 body{
     font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif;
-    background-color: #2d2d34;
+    background-color: #092c54;
 }
 
 .main_container{
@@ -20,7 +20,7 @@ body{
 .header{
     height: 60px;
     width:100%;
-    background-color: #383844;
+    background-color: #e9f0f8;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -29,7 +29,7 @@ body{
 }
 
 .heading{
-    color: white;
+    color: #092c54;
     font-size: 20px;
 }
 
@@ -42,7 +42,7 @@ body{
 .controls{
     height: 470px;
     width: 350px;
-    background-color: #383844;
+    background-color: #e9f0f8;
     border-radius: 10px;
     padding: 16px;
     display: flex;
@@ -53,7 +53,7 @@ body{
     border-radius: 10px;
     height: 470px;
     width: 900px;
-    background-color: #383844;
+    background-color: #e9f0f8;
     display: flex;
     justify-content: center;
     align-items: flex-end;
@@ -63,7 +63,8 @@ body{
 
 .bar{
     width: 8px;
-    background-color: rgb(131, 237, 237);
+    background-color: rgb(90, 167, 244);
+    border:1px solid #103157;
     border-radius: 2px;
     margin: 0px 2px;
 }
@@ -85,14 +86,14 @@ body{
     align-items: center;
     padding: 8px;
     border-radius: 5px;;
-    background-color: #2d2d34;
+    background-color: #092c54;
 }
 
 .range{
     appearance: none;
     width:200px;
     height: 5px;
-    background-color: #40404b;
+    background-color: #2f5c90;
 }
 
 .range::-webkit-slider-thumb{
@@ -100,12 +101,12 @@ body{
     width: 15px;
     height: 15px;
     border-radius: 8px ;
-    background-color: #383844;
-    border: 2px solid aqua;
+    background-color: #103157;
+    border: 2px solid rgb(207, 70, 70);
 }
 
 #size,#speed{
-    color: white;
+    color: #092c54;
     margin-bottom: 16px;
 }
 
@@ -116,17 +117,17 @@ body{
 }
 
 .algorithm{
-    color: white;
+    color: #092c54;
     margin-bottom: 26px;
 }
 
 #algo{
-    background-color: #2d2d34;
+    background-color: #092c54;
     padding: 8px;
     width: 302px;
     height: 40px;
     border-radius: 5px;
-    color:white;
+    color: white;
     font-size: 16px;
     text-decoration: none;
     list-style: none;
@@ -146,9 +147,9 @@ button{
     padding: 8px;
     height: 35px;
     width: 110px;
-    color: black;
+    color: white;
     font-weight: bold;
-    background-color: aqua;
+    background-color: #092c54;
     border:none;
     border-radius: 8px;
 }
