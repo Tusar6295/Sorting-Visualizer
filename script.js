@@ -354,9 +354,6 @@ sort.addEventListener('click' , function(){
         case("merge"):
             mergeSort(array,0,numOfBars-1);
             break;
-        case("quick"):
-            quickSort(array);
-           break;
         default:
             bubbleSort(array);
             break;
